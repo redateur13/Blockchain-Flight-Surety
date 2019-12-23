@@ -20,12 +20,26 @@
     </nav>
 
     <main class="container">
+        <div id="is-operational" class="top-20">
+        </div>
 
-        <div id="display-wrapper" class="top-20">
+        <div id="flight-number-timestamp-selection" class="row top-20">
         </div>
-        <div class="row top-20">
-            <label class="form">Flight</label> <input type="text" id="flight-number"> <btn class="btn btn-primary" id="submit-oracle">Submit to Oracles</btn>
+        <div id="purchase-flight-insurance" class="row top-20">
+            <label class="form">Insurance payment(ether)</label> <input type="number" id="insurance-amount">
+            <btn class="btn btn-success" id="purchase-insurance">Purchase Flight Insurance</btn>
         </div>
+        <div id="flight-insurance-list" class="row top-20">
+        </div>
+
+        <div id="fetch-flight" class="row top-40">
+        </div>
+        <btn class="btn btn-primary" id="submit-oracle">Submit to Oracles</btn>
+
+        <div id="display-fetch" class="row top-20"></div>
+        
+        <btn class="btn btn-success" id="charge-insurance">Charge</btn>
+        <div id="charge-insurance-result" class="row top-20"></div>
     </main>
 
 </body>

@@ -1,0 +1,17 @@
+{
+	"localhost": {
+		"url": "http://localhost:8545",
+		"dataAddress": "0xB9B7e0cb2EDF5Ea031C8B297A5A1Fa20379b6A0a",
+		"appAddress": "0xdE5491f774F0Cb009ABcEA7326342E105dbb1B2E"
+	},
+	"flights": [
+		{
+			"number": "N707",
+			"timestamp": 1577106706
+		},
+		{
+			"number": "N714",
+			"timestamp": 1580706706
+		}
+	]
+}

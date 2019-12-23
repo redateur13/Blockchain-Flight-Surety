@@ -1,6 +1,6 @@
 # FlightSurety
 
-FlightSurety is a sample application project for Udacity's Blockchain course.
+FlightSurety is a sample application project for Udacity's Blockchain course.the DAPP lets passengers purchase flight insurances prior to flight departure through the DAPP and get payback incase the flight gets delayed/cancelled
 
 ## Install
 
@@ -12,6 +12,9 @@ To install, download or clone the repo, then:
 `truffle compile`
 
 ## Develop Client
+
+To run ganache: 
+`ganache-cli -a 40 -m "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat"`
 
 To run truffle tests:
 

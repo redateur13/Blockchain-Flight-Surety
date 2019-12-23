@@ -34,23 +34,48 @@ export default class Contract {
     }
 
     isOperational(callback) {
-       let self = this;
-       self.flightSuretyApp.methods
+        const self = this;
+        self.flightSuretyApp.methods
             .isOperational()
-            .call({ from: self.owner}, callback);
+            .call({ from: self.owner }, callback);
     }
 
-    fetchFlightStatus(flight, callback) {
-        let self = this;
-        let payload = {
+    purchaseInsurance(flight, timestamp, amount) {
+        const self = this;
+        const payload = {
             airline: self.airlines[0],
             flight: flight,
-            timestamp: Math.floor(Date.now() / 1000)
+            timestamp: timestamp,
+            amount
+        } 
+        let gas;
+        return self.flightSuretyApp.methods.purchaseInsurance(payload.airline, payload.flight, payload.timestamp).estimateGas({ from: self.owner, value: this.web3.utils.toWei(payload.amount, 'ether') })
+            .then(ret => { 
+                gas = ret;
+                return self.flightSuretyApp.methods.purchaseInsurance(payload.airline, payload.flight, payload.timestamp)
+                    .send({ from: self.owner, value: this.web3.utils.toWei(payload.amount, 'ether'), gas })
+            })
+            .then(() => payload);
+    }
+
+    fetchFlightStatus(flight, timestamp, callback) {
+        const self = this;
+        const payload = {
+            airline: self.airlines[0],
+            flight,
+            timestamp
         } 
         self.flightSuretyApp.methods
             .fetchFlightStatus(payload.airline, payload.flight, payload.timestamp)
-            .send({ from: self.owner}, (error, result) => {
+            .send({ from: self.owner }, (error) => {
                 callback(error, payload);
             });
+    }
+
+    chargeInsurance() {
+        const self = this;
+        return self.flightSuretyApp.methods
+            .chargeInsurance()
+            .send({ from: self.owner })
     }
 }
