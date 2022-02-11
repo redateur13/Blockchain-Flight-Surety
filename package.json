@@ -24,7 +24,7 @@
     "@babel/plugin-transform-async-to-generator": "^7.5.0",
     "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.6.2",
-    "@openzeppelin/contracts": "^2.3.0",
+    "@openzeppelin/contracts": "^4.4.2",
     "@truffle/hdwallet-provider": "^1.0.19",
     "babel-loader": "^8.0.6",
     "bignumber.js": "8.0.2",
